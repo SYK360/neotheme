@@ -29,15 +29,6 @@ function showNeoSidebar() {
     $("#sidebar").fadeIn('fast');
 }
 $(document).ready(function () {
-    $(".datepicker").datepicker({
-        dateFormat: "dd-mm-yy",
-        firstDay: 1,
-        beforeShow: function () {
-            setTimeout(function () {
-                $(".ui-datepicker").css("z-index", 99999999999999);
-            }, 0);
-        }
-    });
     $(".clickableRow").mousedown(function (event) {
         if (event.which === 1 || event.which === 2) {
             var href = $(this).attr("data-href");

@@ -67,6 +67,17 @@
     text-transform: uppercase;
 }
 
+.sidebar-header .form-control {
+    background-color: #374850;
+    border-color: #374850;
+    color: rgb(184, 199, 206);
+}
+
+.sidebar-header .btn {
+    background-color: rgb(184, 199, 206);
+    border-color: #374850;
+}
+
 #sidebar ul {
     padding: 0;
 }
@@ -134,7 +145,7 @@
     width: 100%;
     z-index: 2000;
     background-color: #FFF;
-    opacity: 0.7;
+    opacity: 0.5;
 }
 
 /* pace customizations */

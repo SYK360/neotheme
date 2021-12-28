@@ -45,15 +45,19 @@
     <body>
     {% block navbar %}
         <div id="sidebar">
-            <div class="sidebar-header">
-                <a href="{{ asset('') }}">
+            <div class="sidebar-header pl-2 pt-3 pr-2 pb-3">
+                <a href="{{ asset('') }}" class="d-block mb-2">
                     {{ fsc.empresa.nombrecorto }}
                 </a>
+                {% if fsc.user.email %}
+                    <img src="{{ fsc.user.gravatar() }}" alt="{{ fsc.user.email }}" class="rounded mb-2"/>
+                {% endif %}
+                <p>{{ fsc.user.nick }}</p>
                 <form action="MegaSearch" method="post">
                     <div class="input-group">
                         <input type="text" class="form-control" name="query" placeholder="{{ i18n.trans('search') }}"/>
                         <div class="input-group-append">
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-info">
                                 <i class="fas fa-search" aria-hidden="true"></i>
                             </button>
                         </div>
@@ -70,39 +74,23 @@
         </div>
         <nav class="navbar sticky-top navbar-expand navbar-custom d-print-none">
             <div class="collapse navbar-collapse">
-                <button class="btn btn-outline-light mr-3" type="button" title="{{ i18n.trans('menu') }}"
-                        onclick="showNeoSidebar();">
-                    <i class="fas fa-bars fa-fw" aria-hidden="true"></i>
-                    {% set pageData = fsc.getPageData() %}
-                    <span class="d-none d-lg-inline-block">{{ pageData.menu is empty ? fsc.empresa.nombrecorto : i18n.trans(pageData.menu) }}</span>
-                </button>
                 {% block navbarContent %}
+                    {% set pageData = fsc.getPageData() %}
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active" title="{{ i18n.trans('refresh') }}">
-                            <a class="nav-link" href="{{ fsc.url() }}">
-                                <i class="{{ pageData.icon }} fa-fw" aria-hidden="true"></i>
-                                {{ fsc.title }}
+                        <li class="nav-item" title="{{ i18n.trans('menu') }}">
+                            <a class="nav-link" href="#" onclick="showNeoSidebar();">
+                                <i class="fas fa-bars fa-fw" aria-hidden="true"></i>
+                                <span class="d-none d-lg-inline-block">{{ pageData.menu is empty ? fsc.empresa.nombrecorto : i18n.trans(pageData.menu) }}</span>
+                            </a>
+                        </li>
+                        <li class="nav-item active" title="{{ i18n.trans('menu') }}">
+                            <a class="nav-link" href="#" onclick="showNeoSidebar();">
+                                <i class="fas fa-chevron-right fa-fw" aria-hidden="true"></i> {{ fsc.title }}
                             </a>
                         </li>
                     </ul>
                 {% endblock %}
                 <ul class="navbar-nav ml-auto">
-                    {% if pageData.name == fsc.user.homepage %}
-                        <li class="nav-item" title="{{ i18n.trans('marked-as-homepage') }}">
-                            <a class="nav-link" href="{{ fsc.url() }}?defaultPage=FALSE">
-                                <i class="fas fa-bookmark" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                    {% elseif pageData.showonmenu == false %}
-                    {% else %}
-                        <li class="nav-item" title="{{ i18n.trans('mark-as-homepage') }}">
-                            <a class="nav-link" href="{{ fsc.url() }}?defaultPage=TRUE">
-                                <i class="far fa-bookmark" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                    {% endif %}
-                    {% block navbarContentRight %}
-                    {% endblock %}
                     <li class="nav-item{{ template == 'Dashboard.html.twig' ? ' active' : '' }}"
                         title="{{ i18n.trans('dashboard') }}">
                         <a class="nav-link" href="Dashboard">
@@ -110,9 +98,16 @@
                         </a>
                     </li>
                     <li class="nav-item" title="{{ i18n.trans('help') }}">
-                        <a class="nav-link" href="https://facturascripts.com/ayuda" target="_blank">
-                            <i class="fas fa-question-circle fa-fw" aria-hidden="true"></i>
-                        </a>
+                        {% if constant('MC20_INSTALLATION') is defined %}
+                            <a class="nav-link" href="/support?action=controller&name={{ fsc.getPageData().name }}"
+                               target="_blank">
+                                <i class="fas fa-question-circle" aria-hidden="true"></i>
+                            </a>
+                        {% else %}
+                            <a class="nav-link" href="https://facturascripts.com/ayuda" target="_blank">
+                                <i class="fas fa-question-circle fa-fw" aria-hidden="true"></i>
+                            </a>
+                        {% endif %}
                     </li>
                     <li class="nav-item dropdown" title="{{ i18n.trans('user') }}">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
@@ -170,7 +165,7 @@
             </a>
         {% elseif item.active %}
             <a href="#sideMenu{{ item.name }}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                <i class="far fa-folder-open fa-fw" aria-hidden="true"></i> &nbsp;{{ item.title }}
+                <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i> &nbsp;{{ item.title }}
             </a>
             <ul class="collapse show" id="sideMenu{{ item.name }}">
                 {% for subitem in item.menu %}
@@ -179,7 +174,7 @@
             </ul>
         {% else %}
             <a href="#sideMenu{{ item.name }}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i> &nbsp;{{ item.title }}
+                <i class="far fa-folder-open fa-fw" aria-hidden="true"></i> &nbsp;{{ item.title }}
             </a>
             <ul class="collapse" id="sideMenu{{ item.name }}">
                 {% for subitem in item.menu %}

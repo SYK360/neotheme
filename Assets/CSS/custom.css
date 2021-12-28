@@ -2,9 +2,11 @@
 .table th {
     border-top: none;
 }
+
 .clickable, .clickableRow:hover {
     cursor: pointer;
 }
+
 .custom-checkbox-control {
     position: relative;
     display: -ms-inline-flexbox;
@@ -13,20 +15,25 @@
     padding-left: 1.5rem;
     margin-right: 1rem;
 }
+
 .ui-autocomplete {
     z-index: 1500;
 }
+
 /* SIDEBAR */
 .navbar-custom {
-    background-color: #5E72E4;
+    background-color: #3C8DBC;
     box-shadow: 0px 2px 2px silver;
 }
+
 .navbar-custom .nav-link, .navbar-custom .navbar-brand {
     color: white;
 }
+
 .navbar-custom .dropdown-toggle::after {
     display: none;
 }
+
 #sidebar {
     display: none;
     position: fixed;
@@ -36,62 +43,82 @@
     padding: 0;
     overflow: auto;
     z-index: 2001;
-    background-color: #313A46;
-    color: white;
+    background-color: #222D32;
+    color: rgb(184, 199, 206);
     box-shadow: 3px 0px 3px #666;
 }
+
 #sidebar::-webkit-scrollbar {
     width: 5px;
 }
+
 #sidebar::-webkit-scrollbar-thumb {
     background-color: darkgrey;
 }
+
 .sidebar-header {
     padding: 10px 5px 10px 5px;
     text-align: center;
 }
+
 .sidebar-header a {
     color: white;
     font-weight: bold;
     text-transform: uppercase;
 }
+
 #sidebar ul {
     padding: 0;
 }
+
 #sidebar ul ul {
     border-bottom: 1px solid #454B54;
 }
+
 #sidebar ul ul a {
     font-size: 0.9em !important;
     padding-left: 20px !important;
 }
+
 #sidebar ul ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
 }
+
 #sidebar ul li.active {
-    background-color: #454B54;
+    background-color: #2C3B41;
+    border-left: 2px solid #00A5E3;
 }
+
+#sidebar ul li.active li {
+    border-left-width: 0px;
+}
+
 #sidebar ul ul li.active {
-    background-color: #585D63;
+    font-weight: bold;
 }
+
 #sidebar ul li a {
     display: block;
     padding: 5px;
     color: whitesmoke;
 }
+
 #sidebar ul ul ul li.active {
     color: white;
     font-weight: bolder;
 }
+
 #sidebar ul li a:hover {
-    color: #333333;
-    background-color: whitesmoke;
+    background-color: #1E282C;
+    font-weight: bold;
     text-decoration: none;
 }
+
 #sidebar a[data-toggle="collapse"] {
     position: relative;
 }
+
 #sidebar .dropdown-toggle::after {
     display: block;
     position: absolute;
@@ -99,6 +126,7 @@
     right: 20px;
     transform: translateY(-50%);
 }
+
 #sidebar-overlay {
     display: none;
     position: fixed;
@@ -108,6 +136,7 @@
     background-color: #FFF;
     opacity: 0.7;
 }
+
 /* pace customizations */
 .pace {
     -webkit-pointer-events: none;
@@ -115,9 +144,11 @@
     -webkit-user-select: none;
     -moz-user-select: none;
 }
+
 .pace-inactive {
     display: none;
 }
+
 .pace .pace-progress {
     background: #ffffff;
     position: fixed;

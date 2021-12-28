@@ -166,9 +166,10 @@
 {% macro showMenu(item) %}
     {% import _self as macros %}
     {% set active = item.active ? 'active' : '' %}
+    {% set menuItemClass = item.active ? 'sidebar-menu-item-active' : '' %}
     <li class="{{ active }}">
         {% if item.menu is empty %}
-            <a href="{{ item.url }}">
+            <a href="{{ item.url }}" class="{{ menuItemClass }}">
                 <i class="{{ item.icon }} fa-fw" aria-hidden="true"></i> &nbsp;{{ item.title }}
             </a>
         {% elseif item.active %}

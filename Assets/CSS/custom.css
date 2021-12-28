@@ -84,6 +84,8 @@
 
 #sidebar ul ul {
     border-bottom: 1px solid #454B54;
+    border-left: 1px solid #454B54;
+    border-top: 1px solid #454B54;
 }
 
 #sidebar ul ul a {
@@ -111,18 +113,13 @@
     color: rgb(184, 199, 206);
 }
 
-#sidebar ul ul ul li.active {
-    color: white;
-    font-weight: bolder;
-}
-
 #sidebar ul li a:hover {
     background-color: #1E282C;
     font-weight: bold;
     text-decoration: none;
 }
 
-#sidebar ul li.active li.active a {
+#sidebar .sidebar-menu-item-active {
     color: white;
     font-weight: bold;
 }

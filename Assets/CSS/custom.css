@@ -105,14 +105,10 @@
     border-left-width: 0px;
 }
 
-#sidebar ul ul li.active {
-    font-weight: bold;
-}
-
 #sidebar ul li a {
     display: block;
     padding: 5px;
-    color: whitesmoke;
+    color: rgb(184, 199, 206);
 }
 
 #sidebar ul ul ul li.active {
@@ -124,6 +120,11 @@
     background-color: #1E282C;
     font-weight: bold;
     text-decoration: none;
+}
+
+#sidebar ul li.active li.active a {
+    color: white;
+    font-weight: bold;
 }
 
 #sidebar a[data-toggle="collapse"] {

@@ -172,7 +172,8 @@
                 <i class="{{ item.icon }} fa-fw" aria-hidden="true"></i> &nbsp;{{ item.title }}
             </a>
         {% elseif item.active %}
-            <a href="#sideMenu{{ item.name }}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+            <a href="#sideMenu{{ item.name }}" data-toggle="collapse" aria-expanded="false"
+               class="dropdown-toggle pt-2 pb-2">
                 <i class="fas fa-caret-square-right fa-fw" aria-hidden="true"></i> &nbsp;{{ item.title }}
             </a>
             <ul class="collapse show" id="sideMenu{{ item.name }}">
@@ -181,7 +182,8 @@
                 {% endfor %}
             </ul>
         {% else %}
-            <a href="#sideMenu{{ item.name }}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+            <a href="#sideMenu{{ item.name }}" data-toggle="collapse" aria-expanded="false"
+               class="dropdown-toggle pt-2 pb-2">
                 <i class="far fa-caret-square-right fa-fw" aria-hidden="true"></i> &nbsp;{{ item.title }}
             </a>
             <ul class="collapse" id="sideMenu{{ item.name }}">

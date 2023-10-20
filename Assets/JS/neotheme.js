@@ -1,8 +1,3 @@
-$(document).ready(function () {
-    $.getScript("Dinamic/Assets/JS/Custom.js", function (data) {
-    });
-});
-
 function hideNeoSidebar() {
     $("#sidebar").fadeOut('fast');
     $("#sidebar-overlay").fadeOut('slow');
